@@ -1,0 +1,35 @@
+#
+# Smart Meter Texas 2.0
+#
+# Can't use rest sensor because of they require SSL certificates
+#
+# Step 1: submit an on-demand request to SMT.  This returns a correlationId, which is used in step 2
+#
+- platform: command_line
+  name: Smart Meter Request
+  value_template: '{{ value_json.correlationId }}'
+  json_attributes:     # These are not strictly necessary.  Could be useful for status and/or debug
+    - statusReason
+    - statusCode
+    - trans_id
+    - errorMessage
+  scan_interval: 7200  # SMT limits requests to 1800 (twice an hour).  They block requests any lower/faster than that
+  command: !secret smart_meter_curl_request
+#
+# Step 2: use the correlationId to read the results of the above request.
+#         Usually isn't immediately available after step 1... might take a minute or more.
+#
+#  value_template: '{{ value_json.smart_meter_read_json.odrRead }}'
+- platform: command_line
+  name: Smart Meter Read
+  unit_of_measurement: kWh
+  value_template: '{{ value_json.odrRead.registeredRead }}'
+  json_attributes:      # These are not strictly necessary.  Could be useful for status and/or debug
+    - correlationId     # This is the correlationId returned by this status read. Should match the Id from sensor.smar
+t_meter_request
+    - statusReason
+    - statusCode
+    - errorMessage
+    - odrRead
+  scan_interval: 900   # Much lower doesn't make sense since we can only read once every 30 minutes
+  command: !secret smart_meter_curl_read
