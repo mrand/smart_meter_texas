@@ -1,8 +1,7 @@
 #
 # Smart Meter Texas 2.0, cURL style
 #
-# Originally from https://github.com/mrand/smart_meter_texas/edit/master/home-assistant/sensor_on_demand.yaml
-#
+# Originally from https://github.com/mrand/smart_meter_texas/
 #
 # Step 1: submit an on-demand request to SMT.  This returns a correlationId, which is used in step 2
 #
@@ -20,6 +19,10 @@
 #
 # Step 2: use the correlationId provided above to read the results of the above request.
 #         Usually isn't immediately available after step 1... might take a minute or more.
+#
+# Note: at HA bootup, the below sensor might return and error about invalid correlationId
+#         because the correlationId sensor above hasn't been initalized yet.  
+#         It always seems to quickly resolve itself.
 #
 #  value_template: '{{ value_json.smart_meter_read_json.odrRead }}'
 - platform: command_line
