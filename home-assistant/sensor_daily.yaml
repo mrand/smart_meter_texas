@@ -1,0 +1,52 @@
+#
+# Retrieve yesterday's meter read (or daily consumption) from Smart Meter Texas 2.0 
+#
+# Since yesterday's reading isn't available until late afternoon / early evening today,
+# here are the ways to deal with that:
+#
+# Option 1: always launch your HA instance after 5pm and set scan_interval for 24 hours (note: first reading on HA launch might be N/A)
+# Option 2: use automation to pull your data later in the day
+# Option 3: avoid situation completely by pulling the data from two days ago rather than yesterday
+#
+#
+# Originally from https://github.com/mrand/smart_meter_texas/
+#
+# Following sensor is used to get yesterday's date and force proper formatting for SMT call
+#
+- platform: template
+  sensors:
+    yesterday_usa:
+      value_template: >
+        {% set ct = states('sensor.date_time') %}
+        {% set ct = as_timestamp(strptime(ct,'%Y-%m-%d, %H:%M')) %}
+        {% set ct = ct - 60*60*24 %}
+        {{ ct | timestamp_custom("%m/%d/%Y") }}
+#
+# NOTE: at HA bootup, the below sensor can return "Invalid Date. Expected format of: startDate is MM/dd/yyyy"
+#       because the above sensor hasn't been initalized yet.  It always seems to resolve itself.
+#
+- platform: command_line
+  name: Smart Meter Daily
+  value_template: '{{ value_json.registeredReads[0].endReading }}'      # yesterday's meter read
+# value_template: '{{ value_json.registeredReads[0].energyDataKwh }}'   # yesterday's consumption
+  json_attributes:     # These are not strictly necessary.  Useful for status and/or debug
+    - statusReason
+    - statusCode
+    - trans_id
+    - errorMessage
+    - errorCode
+    - registeredReads
+  scan_interval: 16777216  # Just a random big number (6.47 months) when using an automation to scan (see below)
+  command: !secret smart_meter_curl_daily
+#
+# example automation (copy to automation.yaml, or enter via your GUI)
+#
+# Retrieve daily power number from official Smart Meter Texas (SMT) API
+#- alias: 'Daily Power'
+#  trigger:
+#    - platform: time
+#      at: '17:17:17'   # Pick an arbitrary time later in the day. Right before midnight might actually be best
+#  action:
+#    - service: homeassistant.update_entity
+#      entity_id: sensor.smart_meter_daily
+
