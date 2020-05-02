@@ -1,7 +1,8 @@
 #
-# Smart Meter Texas 2.0
+# Smart Meter Texas 2.0, cURL style
 #
-# Can't use rest sensor because of they require SSL certificates
+# Originally from https://github.com/mrand/smart_meter_texas/edit/master/home-assistant/sensor_on_demand.yaml
+#
 #
 # Step 1: submit an on-demand request to SMT.  This returns a correlationId, which is used in step 2
 #
@@ -13,10 +14,11 @@
     - statusCode
     - trans_id
     - errorMessage
-  scan_interval: 7200  # SMT limits requests to 1800 (twice an hour).  They block requests any lower/faster than that
+  scan_interval: 3600  # SMT blocks request any faster/lower than 1800 (twice an hour).
   command: !secret smart_meter_curl_request
 #
-# Step 2: use the correlationId to read the results of the above request.
+#
+# Step 2: use the correlationId provided above to read the results of the above request.
 #         Usually isn't immediately available after step 1... might take a minute or more.
 #
 #  value_template: '{{ value_json.smart_meter_read_json.odrRead }}'
