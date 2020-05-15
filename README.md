@@ -30,11 +30,17 @@ First documented here: https://github.com/keatontaylor/smartmetertexas-api/wiki
 
 First off, whatever method you use, **PLEASE** make sure not to poll for results faster than every 900 seconds / 15 minutes.  Some programs might default polling to every 10 seconds. There is no reason to, and entities tend to start taking notice and adding additional restrictions when polling rates are so high.
 
-### Curl
+### Shell script calling Curl
+* See the Curl directory in this repo
 
 ### Home Assistant
+* See the Home Assistant directory in this repo (based on Curl)
 
 ### Nodered
-For a nodered example, check out:
+For nodered examples, check out:
 * this repo: https://github.com/stmrocket/ha-smartmetertexas
 * this post: https://old.reddit.com/r/homeassistant/comments/ep3pki/texas_smart_meteroncor_users_api_work/
+
+### Web scraping
+Examples:
+* https://github.com/vaj4088/ElectricityUsagePredictor5
