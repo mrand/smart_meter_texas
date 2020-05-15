@@ -35,4 +35,6 @@ First off, whatever method you use, **PLEASE** make sure not to poll for results
 ### Home Assistant
 
 ### Nodered
-For a nodered example, check out this post: https://old.reddit.com/r/homeassistant/comments/ep3pki/texas_smart_meteroncor_users_api_work/
+For a nodered example, check out:
+* this repo: https://github.com/stmrocket/ha-smartmetertexas
+* this post: https://old.reddit.com/r/homeassistant/comments/ep3pki/texas_smart_meteroncor_users_api_work/
