@@ -1,5 +1,8 @@
 #
+# Originally from https://github.com/mrand/smart_meter_texas/
+#
 # Retrieve yesterday's meter read (or daily consumption) from Smart Meter Texas 2.0 
+#
 #
 # Since yesterday's reading isn't available until late afternoon / early evening today,
 # here are the ways to deal with that:
@@ -8,8 +11,6 @@
 # Option 2: use automation to pull your data later in the day
 # Option 3: avoid situation completely by pulling the data from two days ago rather than yesterday
 #
-#
-# Originally from https://github.com/mrand/smart_meter_texas/
 #
 # Following sensor is used to get yesterday's date and force proper formatting for SMT call
 #
@@ -39,13 +40,13 @@
   scan_interval: 16777216  # Just a random big number (6.47 months) when using an automation to scan (see below)
   command: !secret smart_meter_curl_daily
 #
-# example automation (copy to automation.yaml, or enter via your GUI)
+# example automation (copy to automation.yaml, or enter via Home Assistant GUI)
 #
 # Retrieve daily power number from official Smart Meter Texas (SMT) API
 #- alias: 'Daily Power'
 #  trigger:
 #    - platform: time
-#      at: '17:17:17'   # Pick an arbitrary time later in the day. Right before midnight might actually be best
+#      at: '17:17:17'   # Arbitrary time later in the day. Right before midnight might be best to allow for late evening reboots
 #  action:
 #    - service: homeassistant.update_entity
 #      entity_id: sensor.smart_meter_daily
