@@ -1,5 +1,5 @@
-#
-# This is step 1
+# 
+# This is step 1 for making an "On demand" meter read request from Smart Meter Texas
 #
 # It's a waste to do this more than twice an hour
 # 
@@ -7,6 +7,8 @@
 # than putting the account password on the command line for other users to see
 #
 # Update requestorID and ESIID in this file, and the login and password in the netrc fle
+#
+# original source: https://github.com/mrand/smart_meter_texas/
 #
 curl 'https://services.smartmetertexas.net/odr/' \
 --netrc-file smart_meter_texas.netrc   \
