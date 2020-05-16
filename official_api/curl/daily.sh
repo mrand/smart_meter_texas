@@ -1,7 +1,8 @@
-# Daily usage example
-#       Today's energy isn't available until tomorrow, late afternoon / early evening
+# Daily usage example from https://github.com/mrand/smart_meter_texas/
 #
 # Update requestorID and ESIID in this file, and the login and password in the netrc fle
+#
+# Today's energy won't be available until tomorrow, late afternoon / early evening
 #
 # other options to consider adding if it doesn't work for you: --tlsv1.2
 #
