@@ -1,5 +1,5 @@
 #
-# Smart Meter Texas 2.0, cURL style
+# Smart Meter Texas 2.0 for Home Assistant using command_line sensor with cURL
 #
 # Originally from https://github.com/mrand/smart_meter_texas/
 #
