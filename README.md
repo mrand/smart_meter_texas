@@ -18,28 +18,28 @@ Despite wording impling otherwise, given the complexity required and manual step
 * Wait a number of days for the outsourced overseas IBM employees to respond
 * When they say go, you should be able to use the official API. As proof of how messed up this process is, they will email you an outdated interface guide.  This latest is https://www.smartmetertexas.com/Smart_Meter_Texas_Interface_Guide.pdf or with all their other documentation: https://smartmetertexas.com/quickrefguides
 
-Oh, and yes, your IP address might change some day, at which point you might need to email support again to update the IP.  Or maybe by then, they won't care about the IP address.  I tried to get support to use a domain name and they would not.  
+As a bonus, if you're using a temporary cert from Let's Encrypt or others, you have to re-contact them every 3 months to update it. Oh, and yes, your IP address might change some day, at which point you might need to email support again to update the IP.  Or maybe by then, they won't care about the IP address.  I tried to get support to use a domain name and they would not.  
 
 ### Unofficial API process
 
 Use login tokens instead.  No waiting.  No SSL certificate. 
-First documented here: https://github.com/keatontaylor/smartmetertexas-api/wiki
+First documented here: https://github.com/keatontaylor/smartmetertexas-api/ and on that repo's wiki
 
 
 ## Pick access method
 
-First off, whatever method you use, **PLEASE** make sure not to poll for results faster than every 900 seconds / 15 minutes.  Some programs might default polling to every 10 seconds. There is no reason to, and entities tend to start taking notice and adding additional restrictions when polling rates are so high.
+First off, whatever method you use, **PLEASE** make sure not to poll for results faster than every 900 seconds / 15 minutes.  Some programs might default polling to every 10 seconds. There is no reason to, and governmental entities might start taking notice and add additional restrictions when polling rates are so high.
 
 ### Shell script calling Curl
-* See the Curl directory in this repo
+* See the Curl examples in this repo
 
-### Home Assistant
+### Home Assistant without Node-RED
 * See the Home Assistant directory in this repo (based on Curl)
 
-### Nodered
+### Home Assistant using Node_RED
 For nodered examples, check out:
-* this repo: https://github.com/stmrocket/ha-smartmetertexas
-* this post: https://old.reddit.com/r/homeassistant/comments/ep3pki/texas_smart_meteroncor_users_api_work/
+* unofficial api: https://github.com/stmrocket/ha-smartmetertexas
+* official api: https://old.reddit.com/r/homeassistant/comments/ep3pki/texas_smart_meteroncor_users_api_work/ (and I've archived the node-red code in my repo)
 
 ### Web scraping
 Examples:
