@@ -28,13 +28,16 @@ First documented here: https://github.com/keatontaylor/smartmetertexas-api/ and 
 
 ## Pick access method
 
-First off, whatever method you use, **PLEASE** make sure not to poll for results faster than every 900 seconds / 15 minutes.  Some programs might default polling to every 10 seconds. There is no reason to, and governmental entities might start taking notice and add additional restrictions when polling rates are so high.
+First off, whatever method you use, **PLEASE** make sure not to poll for results faster than every 900 seconds / 15 minutes.  Some programs might default polling to every 10 seconds. There is no reason to, and enterprises entities might start taking notice and add additional restrictions when polling rates are so high.
 
 ### Shell script calling Curl
 * See the Curl examples in this repo
 
-### Home Assistant without Node-RED
-* See the Home Assistant directory in this repo (based on Curl)
+### Home Assistant using Curl
+* See the Curl examples in this repo
+
+### Home Assistant using python
+* Unofficial api, running in a Docker Container: https://github.com/scadaguru/pysmtreader
 
 ### Home Assistant using Node_RED
 For nodered examples, check out:
