@@ -33,14 +33,17 @@ First off, whatever method you use, **PLEASE** make sure not to poll for results
 ### Shell script calling Curl
 * See the Curl examples in this repo
 
+### Python
+* official api: https://github.com/cmulk/python_smartmetertx
+
 ### Home Assistant using Curl
-* See the Curl examples in this repo
+* official api: see the Curl examples in this repo
+* unofficial: probably easier to just use python
 
 ### Home Assistant using python
-* Unofficial api, running in a Docker Container: https://github.com/scadaguru/pysmtreader
+* unofficial api, running in a Docker Container: https://github.com/scadaguru/pysmtreader
 
 ### Home Assistant using Node_RED
-For nodered examples, check out:
 * unofficial api: https://github.com/stmrocket/ha-smartmetertexas
 * official api: https://old.reddit.com/r/homeassistant/comments/ep3pki/texas_smart_meteroncor_users_api_work/ (and I've archived the node-red code in my repo)
 
