@@ -34,7 +34,8 @@ First off, whatever method you use, **PLEASE** make sure not to poll for results
 * See the Curl examples in this repo
 
 ### Python
-* official api: https://github.com/cmulk/python_smartmetertx
+* unofficial api: https://github.com/cmulk/python_smartmetertx
+* unofficial api: https://github.com/grahamwetzler/smart-meter-texas
 
 ### Home Assistant using Curl
 * official api: see the Curl examples in this repo
