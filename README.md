@@ -37,6 +37,9 @@ First off, whatever method you use, **PLEASE** make sure not to poll for results
 * unofficial api: https://github.com/cmulk/python_smartmetertx
 * unofficial api: https://github.com/grahamwetzler/smart-meter-texas
 
+### Home Assistant integration
+* Someone has been kind enough to create an integration, available starting in 0.115: https://rc.home-assistant.io/integrations/smart_meter_texas
+
 ### Home Assistant using Curl
 * official api: see the Curl examples in this repo
 * unofficial api: due to the token usage, probably easier to just use python
