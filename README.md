@@ -34,11 +34,14 @@ First off, whatever method you use, **PLEASE** make sure not to poll for results
 * See the Curl examples in this repo
 
 ### Python
-* unofficial api: https://github.com/cmulk/python_smartmetertx
+* https://github.com/cmulk/python_smartmetertx
 * unofficial api: https://github.com/grahamwetzler/smart-meter-texas
+* unofficial api: https://github.com/thejcannon/strickland-cannon-coop-src/blob/master/backend/strickland_cannon_coop/scripts/electricity.py
+* unofficial api: https://github.com/BrittanyMcNeal/Electricity-Usage-and-Automation  (based on https://github.com/ankitkchoudhary/electricity-usage-monitoring)
 
 ### Home Assistant integration
 * Someone has been kind enough to create an integration, available starting in 0.115: https://rc.home-assistant.io/integrations/smart_meter_texas
+** Unfortunately, it doesn't work reliably due to authentication errors
 
 ### Home Assistant using Curl
 * official api: see the Curl examples in this repo
