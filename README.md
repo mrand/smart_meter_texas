@@ -50,9 +50,10 @@ First off, whatever method you use, **PLEASE** make sure not to poll for results
 ### Home Assistant using python
 * unofficial api, running in a Docker Container: https://github.com/scadaguru/pysmtreader
 
-### Home Assistant using Node_RED
+### Node_RED
 * unofficial api: https://github.com/stmrocket/ha-smartmetertexas
-* official api: https://old.reddit.com/r/homeassistant/comments/ep3pki/texas_smart_meteroncor_users_api_work/ (and I've archived the node-red code above)
+* official api: https://old.reddit.com/r/homeassistant/comments/ep3pki/texas_smart_meteroncor_users_api_work/ (older; and I've archived the node-red code here)
+* official api: https://github.com/johnavich/SMT-NodeRed-Official   (as of 2023)
 
 ### Web scraping
 Examples:
